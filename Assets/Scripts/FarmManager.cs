@@ -14,6 +14,10 @@ public class FarmManager : MonoBehaviour
     public bool isSelecting = false;
     public int selectedTool = 0;
 
+    public Image[] buttonsImg;
+    public Sprite normalButton;
+    public Sprite selectedButton;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +29,11 @@ public class FarmManager : MonoBehaviour
     {
         if(selectPlant == newPlant)
         {
-            selectPlant.priceTxt.text = "Buy $" + selectPlant.plant.buyPrice;
-            selectPlant = null;
-            isPlanting = false;
+            CheckSelection();
         }
         else
         {
-            if(selectPlant != null)
-            {
-                selectPlant.priceTxt.text = "Buy $" + selectPlant.plant.buyPrice;
-            }
+            CheckSelection();
             selectPlant = newPlant;
 
             selectPlant.priceTxt.text = "Cancel ";
@@ -47,6 +46,7 @@ public class FarmManager : MonoBehaviour
         if(toolNumber == selectedTool)
         {
             // deselect
+            CheckSelection();
         }
         else
         {
@@ -54,6 +54,7 @@ public class FarmManager : MonoBehaviour
             CheckSelection();
             isSelecting = true;
             selectedTool = toolNumber;
+            buttonsImg[toolNumber - 1].sprite = selectedButton;
         }
     }
 
@@ -70,6 +71,10 @@ public class FarmManager : MonoBehaviour
         }
         if (isSelecting)
         {
+            if(selectedTool>0)
+            {
+                buttonsImg[selectedTool - 1].sprite = normalButton;
+            }
             isSelecting = false;
             selectedTool = 0;
         }
