@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: Beetroots
   plantStates:
-  - {fileID: 2591936591094909634, guid: 187bc0450e7d150419692b4d37d31917, type: 3}
-  - {fileID: 2101599454365931226, guid: a15612b6c5017a542a7b844e5b5d47a6, type: 3}
-  - {fileID: 802478190672876835, guid: 7bd0a2c50c4333048b9f53f2ccd86daf, type: 3}
-  - {fileID: 8503541062468863725, guid: 2249de7880da04940a64b74256928047, type: 3}
+  - {fileID: 919132149155446097, guid: 03bac83fdaf367b45bb4c09d1384c06b, type: 3}
+  - {fileID: 919132149155446097, guid: f864c0122bbd05f43a1ad5ca7240d175, type: 3}
+  - {fileID: 919132149155446097, guid: b1dbf4a643eaa01469c8ead6540094ae, type: 3}
+  - {fileID: 919132149155446097, guid: b1dbf4a643eaa01469c8ead6540094ae, type: 3}
   timeBtwStates: 2
-  price: 1
+  buyPrice: 5
+  sellPrice: 10
   icon: {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
