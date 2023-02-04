@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Turnip
   m_EditorClassIdentifier: 
   plantName: Turnip
-  timeBtwStates: 30
+  plantStates:
+  - {fileID: 919132149155446097, guid: 03bac83fdaf367b45bb4c09d1384c06b, type: 3}
+  - {fileID: 919132149155446097, guid: f864c0122bbd05f43a1ad5ca7240d175, type: 3}
+  - {fileID: 919132149155446097, guid: 472894d875c74324c8d06289ca6b9d76, type: 3}
+  timeBtwStates: 1
   buyPrice: 30
   sellPrice: 40
   icon: {fileID: 21300000, guid: 12eed6ff5f7f6d143bc12b62922425ac, type: 3}
