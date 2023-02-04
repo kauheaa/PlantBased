@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3cee408145e89f4289d784fea77445c, type: 3}
-  m_Name: Onions
+  m_Name: Onion
   m_EditorClassIdentifier: 
   plantName: Onion
-  plantStates: []
-  timeBtwStates: 5
-  price: 5
-  icon: {fileID: 21300000, guid: e5600378dd761e64d9423790c482bf36, type: 3}
+  timeBtwStates: 20
+  buyPrice: 10
+  sellPrice: 15
+  icon: {fileID: 21300000, guid: 583357875649eab40be918b4d4a63ca7, type: 3}

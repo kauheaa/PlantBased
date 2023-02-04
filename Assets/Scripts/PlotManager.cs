@@ -8,6 +8,7 @@ public class PlotManager : MonoBehaviour
     [HideInInspector]
     public bool isPlanted = false;
     public GameObject plant;
+    public GameObject[] plantStates;
 
     int plantState = 0;
     float timer;
@@ -35,7 +36,7 @@ public class PlotManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if (timer < 0 && plantState < selectedPlant.plantStates.Length - 1)
+            if (timer < 0 && plantState < plantStates.Length - 1)
             {
                 timer = selectedPlant.timeBtwStates;
                 plantState++;
@@ -49,7 +50,7 @@ public class PlotManager : MonoBehaviour
     {
         if (isPlanted)
         {
-            if (plantState == selectedPlant.plantStates.Length - 1 && !fm.isPlanting)
+            if (plantState == plantStates.Length - 1 && !fm.isPlanting)
             {
                 Harvest();
             }
@@ -99,45 +100,44 @@ public class PlotManager : MonoBehaviour
         UpdatePlant();
         timer = selectedPlant.timeBtwStates;
 
-        selectedPlant.plantStates[0].SetActive(true);
-        //plant.SetActive(true);
+        plantStates[0].SetActive(true);
+        plant.SetActive(true);
     }
 
     void UpdatePlant()
     {
-        //plant = selectedPlant.plantStates[plantState];
+        plant = plantStates[plantState];
 
         if (plantState == 0)
         {
-            selectedPlant.plantStates[0].SetActive(true);
+            plantStates[0].SetActive(true);
 
-            //selectedPlant.plantStates[3].SetActive(false);
-            //selectedPlant.plantStates[2].SetActive(false);
-            //selectedPlant.plantStates[1].SetActive(false);
+            plantStates[3].SetActive(false);
+            plantStates[2].SetActive(false);
+            plantStates[1].SetActive(false);
         }
         if (plantState == 1)
         {
-            selectedPlant.plantStates[1].SetActive(true);
-            Debug.Log("PlantState on yksi");
-            //selectedPlant.plantStates[3].SetActive(false);
-            //selectedPlant.plantStates[2].SetActive(false);
-            //selectedPlant.plantStates[0].SetActive(false);
+            plantStates[1].SetActive(true);
+            //Debug.Log(selectedPlant.plantStates[1].name + " " );
+            plantStates[3].SetActive(false);
+            plantStates[2].SetActive(false);
+            plantStates[0].SetActive(false);
         }
         if (plantState == 2)
         {
-            selectedPlant.plantStates[2].SetActive(true);
-            Debug.Log("PlantState on kaksi");
-            //selectedPlant.plantStates[3].SetActive(false);
-            //selectedPlant.plantStates[1].SetActive(false);
-            //selectedPlant.plantStates[0].SetActive(false);
+            plantStates[2].SetActive(true);
+            
+            plantStates[3].SetActive(false);
+            plantStates[1].SetActive(false);
+            plantStates[0].SetActive(false);
         }
         if (plantState == 3)
         {
-            selectedPlant.plantStates[3].SetActive(true);
-            Debug.Log("PlantState on kolme");
-            //selectedPlant.plantStates[2].SetActive(false);
-            //selectedPlant.plantStates[1].SetActive(false);
-            //selectedPlant.plantStates[0].SetActive(false);
+            plantStates[3].SetActive(true);
+            plantStates[2].SetActive(false);
+            plantStates[1].SetActive(false);
+            plantStates[0].SetActive(false);
         }
     }
 }

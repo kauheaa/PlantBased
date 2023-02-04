@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 23.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 22.6
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -528,7 +528,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5843569312575963584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5615698297405748945}
+        m_TargetAssemblyTypeName: PlantItem, Assembly-CSharp
+        m_MethodName: BuyPlant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3787369967503662971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,6 +588,7 @@ GameObject:
   - component: {fileID: 9102292096405014100}
   - component: {fileID: 9102292096405014107}
   - component: {fileID: 9102292096405014106}
+  - component: {fileID: 5615698297405748945}
   m_Layer: 5
   m_Name: ShopSeedItem
   m_TagString: Untagged
@@ -659,6 +672,22 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &5615698297405748945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102292096405014104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e115f8af4a0d7124ab4467e04e1ec3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plant: {fileID: 11400000, guid: c047b6fe08f177349852d936410559a7, type: 2}
+  nameTxt: {fileID: 2169561267599772735}
+  priceTxt: {fileID: 9164983470588175975}
+  icon: {fileID: 9102292098060895741}
 --- !u!1 &9102292098060895683
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,10 +722,10 @@ RectTransform:
   m_Father: {fileID: 9102292096405014105}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.14400001}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.4424591}
-  m_SizeDelta: {x: -0.0000076294, y: 0.8848}
+  m_AnchoredPosition: {x: 0.3804016, y: 0.5}
+  m_SizeDelta: {x: 0.7608, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9102292098060895742
 CanvasRenderer:
@@ -726,9 +755,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 169911ead136b004aaddf77633492434, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d17ca67073b4c2542b8b040dacfc040c, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

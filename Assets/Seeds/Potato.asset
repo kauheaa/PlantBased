@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3cee408145e89f4289d784fea77445c, type: 3}
-  m_Name: New Plant
+  m_Name: Potato
   m_EditorClassIdentifier: 
-  plantName: Potatoes
-  plantStates: []
+  plantName: Potato
   timeBtwStates: 4
-  price: 10
-  icon: {fileID: 21300000, guid: 76808bbb959d6784c98756a30e96d84b, type: 3}
+  buyPrice: 0
+  sellPrice: 0
+  icon: {fileID: 21300000, guid: dae7c6aa5bdb9664bb60ab43a862b1e1, type: 3}
