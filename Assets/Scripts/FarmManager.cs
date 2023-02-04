@@ -36,7 +36,7 @@ public class FarmManager : MonoBehaviour
             CheckSelection();
             selectPlant = newPlant;
 
-            selectPlant.priceTxt.text = "Cancel ";
+            selectPlant.priceTxt.text = "$" + selectPlant.plant.buyPrice;
             isPlanting = true;
         }
     }
@@ -65,7 +65,7 @@ public class FarmManager : MonoBehaviour
             isPlanting = false;
             if (selectPlant != null)
             {
-                selectPlant.priceTxt.text = "Buy $" + selectPlant.plant.buyPrice;
+                selectPlant.priceTxt.text = "$" + selectPlant.plant.buyPrice;
                 selectPlant = null;
             }
         }
