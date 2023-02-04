@@ -12,14 +12,18 @@ public class PlotManager : MonoBehaviour
     int plantState = 0;
     float timer;
 
+    public Color emptyColor = Color.white;
     public Color availableColor = Color.green;
     public Color unavailableColor = Color.red;
+    public Color growingColor = Color.white;
 
     public SpriteRenderer plot;
 
     PlantObject selectedPlant;
 
     FarmManager fm;
+
+    Animator m_Animator;
 
     //bool isDry = false;
     //public GameObject dryPlant;
@@ -29,13 +33,13 @@ public class PlotManager : MonoBehaviour
     {
         fm = transform.parent.GetComponent<FarmManager>();
         plant = transform.GetChild(0).gameObject;
-        
+        plot.color = emptyColor;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isPlanted)
+        if (isPlanted)
         {
             timer -= Time.deltaTime;
 
@@ -55,11 +59,17 @@ public class PlotManager : MonoBehaviour
             if (plantState == selectedPlant.plantStates.Length - 1 && !fm.isPlanting)
             {
                 Harvest();
+                plot.color = emptyColor;
+            }
+            else
+            {
+                plot.color = unavailableColor;
             }
         }
-        else if(fm.isPlanting && fm.selectPlant.plant.buyPrice <= fm.money)
+        else if (fm.isPlanting && fm.selectPlant.plant.buyPrice <= fm.money)
         {
             Plant(fm.selectPlant.plant);
+            plot.color = growingColor;
         }
     }
     private void OnMouseOver()
@@ -77,10 +87,28 @@ public class PlotManager : MonoBehaviour
                 plot.color = availableColor;
             }
         }
+        else
+        if (isPlanted)
+        {
+            // cant buy
+            plot.color = growingColor;
+        }
+        else
+        {
+            plot.color = Color.white;
+        }
     }
+
     private void OnMouseExit()
     {
-        plot.color = Color.white;
+        if (isPlanted)
+        {
+            plot.color = growingColor;
+        }
+        else
+        {
+            plot.color = emptyColor;
+        }
     }
 
     void Harvest()
@@ -89,32 +117,18 @@ public class PlotManager : MonoBehaviour
         plant.SetActive(false);
         fm.Transaction(selectedPlant.sellPrice);
 
-        plantState = 0;
-
-        if (selectedPlant.plantName == "Carrot")
-        {
-            transform.GetChild(8).gameObject.SetActive(false);
-        }
-        if (selectedPlant.plantName == "Beet")
-        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(false);
             transform.GetChild(3).gameObject.SetActive(false);
-        }
-        if (selectedPlant.plantName == "Onion")
-        {
+            transform.GetChild(3).gameObject.SetActive(false);
             transform.GetChild(4).gameObject.SetActive(false);
-        }
-        if (selectedPlant.plantName == "Radish")
-        {
-            transform.GetChild(6).gameObject.SetActive(false);
-        }
-        if (selectedPlant.plantName == "Turnip")
-        {
-            transform.GetChild(7).gameObject.SetActive(false);
-        }
-        if (selectedPlant.plantName == "Potato")
-        {
             transform.GetChild(5).gameObject.SetActive(false);
-        }
+            transform.GetChild(6).gameObject.SetActive(false);
+            transform.GetChild(7).gameObject.SetActive(false);
+
+            plantState = 0;
+
     }
 
     void Plant(PlantObject newPlant)
@@ -164,109 +178,217 @@ public class PlotManager : MonoBehaviour
 
 
     }
- 
-    void Carrot()
-    {
 
-        transform.GetChild(0).gameObject.SetActive(true);
-        if (plantState == 1)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(true);
-        }
-        if (plantState == 2)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(8).gameObject.SetActive(true);
-        }
-    }
     void Beet()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
+        if(plantState == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+        if (plantState == 1)
+            {
+                Debug.Log("state 1: teen");
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(true);
+            }
+            else
+            {
+                if (plantState == 2)
+                {
+                    Debug.Log("state 2: adult");
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    transform.GetChild(2).gameObject.SetActive(true);
+                    m_Animator = transform.GetChild(2).gameObject.GetComponent<Animator>();
+                    m_Animator.SetTrigger("Peek");
+            }
+                else
+                {
+                    if (plantState == 3)
+                    {
+                    m_Animator = transform.GetChild(2).gameObject.GetComponent<Animator>();
+                    m_Animator.SetTrigger("Wiggle");
+                    Debug.Log("state 3: elder");
+                   }   
 
+                }
+
+            }
+    }
+
+    void Carrot()
+    {
+        if (plantState == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
         if (plantState == 1)
         {
+            Debug.Log("state 1: teen");
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(true);
         }
+        else
+        {
+            if (plantState == 2)
+            {
+                Debug.Log("state 2: adult");
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(3).gameObject.SetActive(true);
+                m_Animator = transform.GetChild(3).gameObject.GetComponent<Animator>();
+                m_Animator.SetTrigger("Peek");
+            }
+            else
+            {
+                if (plantState == 3)
+                {
+                    m_Animator = transform.GetChild(3).gameObject.GetComponent<Animator>();
+                    m_Animator.SetTrigger("Wiggle");
+                    Debug.Log("state 3: elder");
+                }
 
-        if (plantState == 2)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(true);
-        }
-        if (plantState == 3)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(false);
-            transform.GetChild(3).gameObject.SetActive(true);
+            }
+
         }
     }
+
     void Onion()
     {
-
-        transform.GetChild(0).gameObject.SetActive(true);
+        if (plantState == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
         if (plantState == 1)
         {
+            Debug.Log("state 1: teen");
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(true);
         }
-        if (plantState == 2)
+        else
         {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(4).gameObject.SetActive(true);
-        }
-    }
-    void Turnip()
-    {
+            if (plantState == 2)
+            {
+                Debug.Log("state 2: adult");
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(4).gameObject.SetActive(true);
+                m_Animator = transform.GetChild(4).gameObject.GetComponent<Animator>();
+                m_Animator.SetTrigger("Peek");
+            }
+            else
+            {
+                if (plantState == 3)
+                {
+                    m_Animator = transform.GetChild(4).gameObject.GetComponent<Animator>();
+                    m_Animator.SetTrigger("Wiggle");
+                    Debug.Log("state 3: elder");
+                }
 
-        transform.GetChild(0).gameObject.SetActive(true);
-        if (plantState == 1)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(true);
-        }
-        if (plantState == 2)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(7).gameObject.SetActive(true);
-        }
-    }
-    void Radish()
-    {
+            }
 
-
-        transform.GetChild(0).gameObject.SetActive(true);
-        if (plantState == 1)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(true);
-        }
-        if (plantState == 2)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(6).gameObject.SetActive(true);
         }
     }
     void Potato()
     {
-
-        transform.GetChild(0).gameObject.SetActive(true);
+        if (plantState == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
         if (plantState == 1)
         {
+            Debug.Log("state 1: teen");
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(true);
         }
-        if (plantState == 2)
+        else
         {
+            if (plantState == 2)
+            {
+                Debug.Log("state 2: adult");
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(5).gameObject.SetActive(true);
+                m_Animator = transform.GetChild(5).gameObject.GetComponent<Animator>();
+                m_Animator.SetTrigger("Peek");
+            }
+            else
+            {
+                if (plantState == 3)
+                {
+                    m_Animator = transform.GetChild(5).gameObject.GetComponent<Animator>();
+                    m_Animator.SetTrigger("Wiggle");
+                    Debug.Log("state 3: elder");
+                }
+
+            }
+
+        }
+    }
+    void Radish()
+    {
+        if (plantState == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+        if (plantState == 1)
+        {
+            Debug.Log("state 1: teen");
             transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(5).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else
+        {
+            if (plantState == 2)
+            {
+                Debug.Log("state 2: adult");
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(6).gameObject.SetActive(true);
+                m_Animator = transform.GetChild(6).gameObject.GetComponent<Animator>();
+                m_Animator.SetTrigger("Peek");
+            }
+            else
+            {
+                if (plantState == 3)
+                {
+                    m_Animator = transform.GetChild(6).gameObject.GetComponent<Animator>();
+                    m_Animator.SetTrigger("Wiggle");
+                    Debug.Log("state 3: elder");
+                }
+
+            }
+
+        }
+    }
+    void Turnip()
+    {
+        if (plantState == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+        if (plantState == 1)
+        {
+            Debug.Log("state 1: teen");
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else
+        {
+            if (plantState == 2)
+            {
+                Debug.Log("state 2: adult");
+                transform.GetChild(1).gameObject.SetActive(false);
+                transform.GetChild(7).gameObject.SetActive(true);
+                m_Animator = transform.GetChild(7).gameObject.GetComponent<Animator>();
+                m_Animator.SetTrigger("Peek");
+            }
+            else
+            {
+                if (plantState == 3)
+                {
+                    m_Animator = transform.GetChild(7).gameObject.GetComponent<Animator>();
+                    m_Animator.SetTrigger("Wiggle");
+                    Debug.Log("state 3: elder");
+                }
+
+            }
+
         }
     }
 }

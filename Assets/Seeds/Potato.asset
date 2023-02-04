@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: Potato
   plantStates:
-  - {fileID: 919132149155446097, guid: 03bac83fdaf367b45bb4c09d1384c06b, type: 3}
-  - {fileID: 919132149155446097, guid: f864c0122bbd05f43a1ad5ca7240d175, type: 3}
-  - {fileID: 919132149155446097, guid: f864c0122bbd05f43a1ad5ca7240d175, type: 3}
-  - {fileID: 919132149155446097, guid: 504ac3c15295e2b4a91e89afe4c328f9, type: 3}
+  - {fileID: 371419535848132822, guid: 3292eef0c7952e14ba6982f777829c2b, type: 3}
+  - {fileID: 1847050309108351973, guid: ac57f29622a13e542bac5b9369ebe349, type: 3}
+  - {fileID: 3352315323219622942, guid: 1165f1f528fe1764a8ae57f06fd08822, type: 3}
+  - {fileID: 3352315323219622942, guid: 1165f1f528fe1764a8ae57f06fd08822, type: 3}
   timeBtwStates: 40
   buyPrice: 400
   sellPrice: 475
