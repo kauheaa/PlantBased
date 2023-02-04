@@ -858,7 +858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectPlant: {fileID: 0}
   isPlanting: 1
-  money: 0
+  money: 100
   moneyText: {fileID: 0}
 --- !u!4 &161269230
 Transform:
@@ -2408,10 +2408,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates: []
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
-  plot: {fileID: 1116362727}
+  plot: {fileID: 0}
 --- !u!65 &445906671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2575,6 +2574,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4373868704681046518}
+  - {fileID: 4373868704333991243}
+  - {fileID: 1296638900}
   m_Father: {fileID: 4373868705493549224}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2597,14 +2598,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 4373868704333991240}
-  plantStates:
-  - {fileID: 4373868704902178746}
-  - {fileID: 4373868704522177148}
-  - {fileID: 4373868705175261250}
-  - {fileID: 4373868705175261250}
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
-  plot: {fileID: 1296638901}
+  plot: {fileID: 0}
 --- !u!65 &469481805
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3020,14 +3016,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates:
-  - {fileID: 4373868705176962131}
-  - {fileID: 4373868704723665564}
-  - {fileID: 4373868705355598785}
-  - {fileID: 4373868704548212211}
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
-  plot: {fileID: 677335216}
+  plot: {fileID: 0}
 --- !u!65 &554927188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6730,17 +6721,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296638899}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0.586}
-  m_LocalScale: {x: -0.44886005, y: -0.44886005, z: -0.8977201}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.004209997}
+  m_LocalScale: {x: -0.008977201, y: -0.008977201, z: -0.008977201}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4373868704681046518}
-  m_RootOrder: 8
+  m_Father: {fileID: 469481803}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.39999992, y: 0.423}
+  m_AnchoredPosition: {x: -0.0043999553, y: -0.0049299}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1296638901
@@ -14536,13 +14527,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4373868704333991240}
-  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: 0.03759556, y: 0.425, z: 0.12}
-  m_LocalScale: {x: 50, y: 50, z: 50.00001}
+  m_LocalRotation: {x: 0.00000005960465, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0043519116, y: 0.004389997, z: 0.0042299996}
+  m_LocalScale: {x: 1, y: 1, z: 0.5000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4373868704681046518}
-  m_RootOrder: 7
+  m_Father: {fileID: 469481803}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &4373868704333991245
 MeshFilter:
@@ -14925,8 +14916,6 @@ Transform:
   - {fileID: 4373868704902178749}
   - {fileID: 4373868704522177151}
   - {fileID: 4373868705175261253}
-  - {fileID: 4373868704333991243}
-  - {fileID: 1296638900}
   m_Father: {fileID: 469481803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14946,7 +14935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &4373868704723665553
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15128,10 +15117,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates: []
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
-  plot: {fileID: 1421208763}
+  plot: {fileID: 0}
 --- !u!224 &4373868704833890905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15933,7 +15921,7 @@ MonoBehaviour:
   selectPlant: {fileID: 0}
   isPlanting: 0
   money: 100
-  moneyText: {fileID: 282610586}
+  moneyText: {fileID: 0}
 --- !u!4 &4373868705658748346
 Transform:
   m_ObjectHideFlags: 0
@@ -17022,7 +17010,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates: []
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
   plot: {fileID: 0}
@@ -17190,7 +17177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates: []
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
   plot: {fileID: 0}
@@ -17773,7 +17759,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates: []
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
   plot: {fileID: 0}
@@ -20424,7 +20409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates: []
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
   plot: {fileID: 0}
@@ -20488,7 +20472,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlanted: 0
   plant: {fileID: 0}
-  plantStates: []
   availableColor: {r: 0, g: 1, b: 0, a: 1}
   unavailableColor: {r: 1, g: 0, b: 0, a: 1}
   plot: {fileID: 0}
