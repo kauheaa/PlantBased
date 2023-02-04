@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3cee408145e89f4289d784fea77445c, type: 3}
-  m_Name: BeetRoot
+  m_Name: Onion
   m_EditorClassIdentifier: 
-  plantName: Beetroots
+  plantName: Onion
   plantStates:
   - {fileID: 919132149155446097, guid: 03bac83fdaf367b45bb4c09d1384c06b, type: 3}
   - {fileID: 919132149155446097, guid: f864c0122bbd05f43a1ad5ca7240d175, type: 3}
   - {fileID: 919132149155446097, guid: d5cfd8530b9b07147baf6bdc71328d82, type: 3}
-  - {fileID: 919132149155446097, guid: b1dbf4a643eaa01469c8ead6540094ae, type: 3}
-  timeBtwStates: 2
-  buyPrice: 5
-  sellPrice: 10
-  icon: {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
+  timeBtwStates: 1
+  buyPrice: 10
+  sellPrice: 15
+  icon: {fileID: 21300000, guid: 583357875649eab40be918b4d4a63ca7, type: 3}

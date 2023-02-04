@@ -12,7 +12,6 @@ public class PlantItem : MonoBehaviour
     public TMP_Text priceTxt;
     public Image icon;
 
-    //public TMP_Text btnTxt;
 
     FarmManager fm;
 

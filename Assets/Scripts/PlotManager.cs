@@ -7,7 +7,8 @@ public class PlotManager : MonoBehaviour
 {
     [HideInInspector]
     public bool isPlanted = false;
-    public GameObject plant;
+    GameObject plant;
+    //public GameObject[] plantStates;
 
     int plantState = 0;
     float timer;
@@ -25,6 +26,7 @@ public class PlotManager : MonoBehaviour
     void Start()
     {
         fm = transform.parent.GetComponent<FarmManager>();
+        plant = transform.GetChild(0).gameObject;
         //plot = GetComponent<SpriteRenderer>();
     }
 
@@ -42,7 +44,6 @@ public class PlotManager : MonoBehaviour
                 UpdatePlant();
             }
         }
-        Debug.Log(plantState);
     }
 
     private void OnMouseDown()
@@ -85,11 +86,37 @@ public class PlotManager : MonoBehaviour
         isPlanted = false;
         plant.SetActive(false);
         fm.Transaction(selectedPlant.sellPrice);
+        if (selectedPlant.plantName == "Carrot")
+        {
+            transform.GetChild(8).gameObject.SetActive(false);
+        }
+        if (selectedPlant.plantName == "Beet")
+        {
+            transform.GetChild(3).gameObject.SetActive(false);
+        }
+        if (selectedPlant.plantName == "Onion")
+        {
+            transform.GetChild(4).gameObject.SetActive(false);
+        }
+        if (selectedPlant.plantName == "Radish")
+        {
+            transform.GetChild(6).gameObject.SetActive(false);
+        }
+        if (selectedPlant.plantName == "Turnip")
+        {
+            transform.GetChild(7).gameObject.SetActive(false);
+        }
+        if (selectedPlant.plantName == "Potato")
+        {
+            transform.GetChild(5).gameObject.SetActive(false);
+        }
     }
 
     void Plant(PlantObject newPlant)
     {
         Debug.Log("Planted " + plant.name);
+
+        plant.SetActive(true);
         selectedPlant = newPlant;
         isPlanted = true;
 
@@ -98,44 +125,138 @@ public class PlotManager : MonoBehaviour
         plantState = 0;
         UpdatePlant();
         timer = selectedPlant.timeBtwStates;
-        plant.SetActive(true);
     }
 
     void UpdatePlant()
     {
         plant = selectedPlant.plantStates[plantState];
 
-        if (plantState == 0)
+        if (selectedPlant.plantName == "Carrot")
         {
-            selectedPlant.plantStates[0].SetActive(true);
-
-            //selectedPlant.plantStates[3].SetActive(false);
-            //selectedPlant.plantStates[2].SetActive(false);
-            //selectedPlant.plantStates[1].SetActive(false);
+            Carrot();
         }
+        if (selectedPlant.plantName == "Beet")
+        {
+            Beet();
+        }
+        if (selectedPlant.plantName == "Onion")
+        {
+            Onion();
+        }
+        if (selectedPlant.plantName == "Radish")
+        {
+            Radish();
+        }
+        if (selectedPlant.plantName == "Turnip")
+        {
+            Turnip();
+        }
+        if (selectedPlant.plantName == "Potato")
+        {
+            Potato();
+        }
+    }
+
+    void Carrot()
+    {
+
+        transform.GetChild(0).gameObject.SetActive(true);
         if (plantState == 1)
         {
-            selectedPlant.plantStates[1].SetActive(true);
-            Debug.Log("PlantState on yksi");
-            //selectedPlant.plantStates[3].SetActive(false);
-            //selectedPlant.plantStates[2].SetActive(false);
-            //selectedPlant.plantStates[0].SetActive(false);
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
         }
         if (plantState == 2)
         {
-            selectedPlant.plantStates[2].SetActive(true);
-            Debug.Log("PlantState on kaksi");
-            //selectedPlant.plantStates[3].SetActive(false);
-            //selectedPlant.plantStates[1].SetActive(false);
-            //selectedPlant.plantStates[0].SetActive(false);
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(8).gameObject.SetActive(true);
+        }
+    }
+    void Beet()
+    {
+
+        transform.GetChild(0).gameObject.SetActive(true);
+        if (plantState == 1)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        if (plantState == 2)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(true);
         }
         if (plantState == 3)
         {
-            selectedPlant.plantStates[3].SetActive(true);
-            Debug.Log("PlantState on kolme");
-            //selectedPlant.plantStates[2].SetActive(false);
-            //selectedPlant.plantStates[1].SetActive(false);
-            //selectedPlant.plantStates[0].SetActive(false);
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(false);
+            transform.GetChild(3).gameObject.SetActive(true);
+        }
+    }
+    void Onion()
+    {
+
+        transform.GetChild(0).gameObject.SetActive(true);
+        if (plantState == 1)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        if (plantState == 2)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(4).gameObject.SetActive(true);
+        }
+    }
+    void Turnip()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+
+        if (plantState == 1)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        if (plantState == 2)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(7).gameObject.SetActive(true);
+        }
+    }
+    void Radish()
+    {
+
+        transform.GetChild(0).gameObject.SetActive(true);
+        if (plantState == 1)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        if (plantState == 2)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(6).gameObject.SetActive(true);
+        }
+    }
+    void Potato()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+
+        if (plantState == 1)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        if (plantState == 2)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(5).gameObject.SetActive(true);
         }
     }
 }
