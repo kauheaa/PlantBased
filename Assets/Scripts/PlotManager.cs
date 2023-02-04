@@ -128,13 +128,13 @@ public class PlotManager : MonoBehaviour
         {
             plantStates[2].SetActive(true);
             
-        plantStates[3].SetActive(false);
-        plantStates[1].SetActive(false);
-        plantStates[0].SetActive(false);
+            plantStates[3].SetActive(false);
+            plantStates[1].SetActive(false);
+            plantStates[0].SetActive(false);
         }
         if (plantState == 3)
         {
-           plantStates[3].SetActive(true);
+            plantStates[3].SetActive(true);
             plantStates[2].SetActive(false);
             plantStates[1].SetActive(false);
             plantStates[0].SetActive(false);
