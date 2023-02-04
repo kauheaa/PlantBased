@@ -16,8 +16,9 @@ MonoBehaviour:
   plantStates:
   - {fileID: 919132149155446097, guid: 03bac83fdaf367b45bb4c09d1384c06b, type: 3}
   - {fileID: 919132149155446097, guid: f864c0122bbd05f43a1ad5ca7240d175, type: 3}
+  - {fileID: 919132149155446097, guid: f864c0122bbd05f43a1ad5ca7240d175, type: 3}
   - {fileID: 919132149155446097, guid: d5cfd8530b9b07147baf6bdc71328d82, type: 3}
-  timeBtwStates: 1
-  buyPrice: 10
-  sellPrice: 15
+  timeBtwStates: 30
+  buyPrice: 300
+  sellPrice: 365
   icon: {fileID: 21300000, guid: 583357875649eab40be918b4d4a63ca7, type: 3}
