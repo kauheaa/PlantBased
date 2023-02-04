@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Beet
   m_EditorClassIdentifier: 
   plantName: Beet
+  plantStates:
+  - {fileID: 371419535848132822, guid: 3292eef0c7952e14ba6982f777829c2b, type: 3}
+  - {fileID: 1847050309108351973, guid: ac57f29622a13e542bac5b9369ebe349, type: 3}
+  - {fileID: 1770545020667156835, guid: 5edd610798e620e4f8fc406c71cb7be9, type: 3}
+  - {fileID: 3352315323219622942, guid: 1165f1f528fe1764a8ae57f06fd08822, type: 3}
   timeBtwStates: 2
   buyPrice: 1
   sellPrice: 2
