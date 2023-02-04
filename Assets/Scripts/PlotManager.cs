@@ -8,7 +8,6 @@ public class PlotManager : MonoBehaviour
     [HideInInspector]
     public bool isPlanted = false;
     GameObject plant;
-    //public GameObject[] plantStates;
 
     int plantState = 0;
     float timer;
@@ -22,12 +21,15 @@ public class PlotManager : MonoBehaviour
 
     FarmManager fm;
 
+    //bool isDry = false;
+    //public GameObject dryPlant;
+
     // Start is called before the first frame update
     void Start()
     {
         fm = transform.parent.GetComponent<FarmManager>();
         plant = transform.GetChild(0).gameObject;
-        //plot = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -86,6 +88,9 @@ public class PlotManager : MonoBehaviour
         isPlanted = false;
         plant.SetActive(false);
         fm.Transaction(selectedPlant.sellPrice);
+
+        plantState = 0;
+
         if (selectedPlant.plantName == "Carrot")
         {
             transform.GetChild(8).gameObject.SetActive(false);
@@ -114,8 +119,6 @@ public class PlotManager : MonoBehaviour
 
     void Plant(PlantObject newPlant)
     {
-        Debug.Log("Planted " + plant.name);
-
         plant.SetActive(true);
         selectedPlant = newPlant;
         isPlanted = true;
@@ -125,6 +128,8 @@ public class PlotManager : MonoBehaviour
         plantState = 0;
         UpdatePlant();
         timer = selectedPlant.timeBtwStates;
+
+        //StartCoroutine(DryingPlant());
     }
 
     void UpdatePlant()
@@ -155,8 +160,10 @@ public class PlotManager : MonoBehaviour
         {
             Potato();
         }
-    }
 
+
+    }
+ 
     void Carrot()
     {
 
@@ -175,13 +182,14 @@ public class PlotManager : MonoBehaviour
     }
     void Beet()
     {
-
         transform.GetChild(0).gameObject.SetActive(true);
+
         if (plantState == 1)
         {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(true);
         }
+
         if (plantState == 2)
         {
             transform.GetChild(0).gameObject.SetActive(false);
@@ -213,8 +221,8 @@ public class PlotManager : MonoBehaviour
     }
     void Turnip()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
 
+        transform.GetChild(0).gameObject.SetActive(true);
         if (plantState == 1)
         {
             transform.GetChild(0).gameObject.SetActive(false);
@@ -229,6 +237,7 @@ public class PlotManager : MonoBehaviour
     }
     void Radish()
     {
+
 
         transform.GetChild(0).gameObject.SetActive(true);
         if (plantState == 1)
@@ -245,8 +254,8 @@ public class PlotManager : MonoBehaviour
     }
     void Potato()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
 
+        transform.GetChild(0).gameObject.SetActive(true);
         if (plantState == 1)
         {
             transform.GetChild(0).gameObject.SetActive(false);
