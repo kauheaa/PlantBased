@@ -7725,6 +7725,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 161269230}
     m_Modifications:
+    - target: {fileID: 1054531720046494977, guid: 80a5f0f87905b1d4ea69c91a85a454ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777491642466935588, guid: 80a5f0f87905b1d4ea69c91a85a454ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490423895845117075, guid: 80a5f0f87905b1d4ea69c91a85a454ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316861858342682969, guid: 80a5f0f87905b1d4ea69c91a85a454ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8177988812081530891, guid: 80a5f0f87905b1d4ea69c91a85a454ea, type: 3}
       propertyPath: m_Name
       value: Plot
