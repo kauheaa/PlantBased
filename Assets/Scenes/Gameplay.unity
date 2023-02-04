@@ -15110,6 +15110,8 @@ MonoBehaviour:
   isPlanting: 0
   money: 100
   moneyText: {fileID: 282610586}
+  isSelecting: 0
+  selectedTool: 0
 --- !u!4 &4373868705658748346
 Transform:
   m_ObjectHideFlags: 0
