@@ -8,15 +8,17 @@ public class PlotManager : MonoBehaviour
     bool isPlanted = false;
     GameObject plant;
 
-    public GameObject[] plantStates;
     int plantState = 0;
-    float timeBtwStates = 2f;
     float timer;
+
+    PlantObject selectedPlant;
+
+    FarmManager fm;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        fm = transform.parent.GetComponent<FarmManager>();
     }
 
     // Update is called once per frame
@@ -26,9 +28,9 @@ public class PlotManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if (timer < 0 && plantState < plantStates.Length - 1)
+            if (timer < 0 && plantState < selectedPlant.plantStates.Length - 1)
             {
-                timer = timeBtwStates;
+                timer = selectedPlant.timeBtwStates;
                 plantState++;
                 UpdatePlant();
                 Debug.Log("úpdated?");
@@ -41,14 +43,14 @@ public class PlotManager : MonoBehaviour
     {
         if (isPlanted)
         {
-            if (plantState == plantStates.Length - 1)
+            if (plantState == selectedPlant.plantStates.Length - 1)
             {
                 Harvest();
             }
         }
-        else
+        else if(fm.isPlanting)
         {
-            Plant();
+            Plant(fm.selectPlant.plant);
         }
     }
 
@@ -58,50 +60,51 @@ public class PlotManager : MonoBehaviour
         plant.gameObject.SetActive(false);
     }
 
-    void Plant()
+    void Plant(PlantObject newPlant)
     {
+        selectedPlant = newPlant;
         isPlanted = true;
         plantState = 0;
         UpdatePlant();
-        timer = timeBtwStates;
+        timer = selectedPlant.timeBtwStates;
         plant.gameObject.SetActive(true);
     }
 
     void UpdatePlant()
     {
-        plant = plantStates[plantState];
+        plant = selectedPlant.plantStates[plantState];
 
         if(plantState == 0)
         {
-            plantStates[0].SetActive(true);
+            selectedPlant.plantStates[0].SetActive(true);
 
-            plantStates[3].SetActive(false);
-            plantStates[2].SetActive(false);
-            plantStates[1].SetActive(false);
+            selectedPlant.plantStates[3].SetActive(false);
+            selectedPlant.plantStates[2].SetActive(false);
+            selectedPlant.plantStates[1].SetActive(false);
         }
         if (plantState == 1)
         {
-            plantStates[1].SetActive(true);
+            selectedPlant.plantStates[1].SetActive(true);
 
-            plantStates[3].SetActive(false);
-            plantStates[2].SetActive(false);
-            plantStates[0].SetActive(false);
+            selectedPlant.plantStates[3].SetActive(false);
+            selectedPlant.plantStates[2].SetActive(false);
+            selectedPlant.plantStates[0].SetActive(false);
         }
         if (plantState == 2)
         {
-            plantStates[2].SetActive(true);
+            selectedPlant.plantStates[2].SetActive(true);
 
-            plantStates[3].SetActive(false);
-            plantStates[1].SetActive(false);
-            plantStates[0].SetActive(false);
+            selectedPlant.plantStates[3].SetActive(false);
+            selectedPlant.plantStates[1].SetActive(false);
+            selectedPlant.plantStates[0].SetActive(false);
         }
         if (plantState == 3)
         {
-            plantStates[3].SetActive(true);
+            selectedPlant.plantStates[3].SetActive(true);
 
-            plantStates[2].SetActive(false);
-            plantStates[1].SetActive(false);
-            plantStates[0].SetActive(false);
+            selectedPlant.plantStates[2].SetActive(false);
+            selectedPlant.plantStates[1].SetActive(false);
+            selectedPlant.plantStates[0].SetActive(false);
         }
     }
 }
