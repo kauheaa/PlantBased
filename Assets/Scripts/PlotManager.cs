@@ -124,6 +124,7 @@ public class PlotManager : MonoBehaviour
         isPlanted = true;
 
         fm.Transaction(-selectedPlant.buyPrice);
+        fm.isPlanting = false;
 
         plantState = 0;
         UpdatePlant();
