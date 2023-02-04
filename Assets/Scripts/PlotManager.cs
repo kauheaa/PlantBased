@@ -98,12 +98,14 @@ public class PlotManager : MonoBehaviour
         plantState = 0;
         UpdatePlant();
         timer = selectedPlant.timeBtwStates;
-        plant.SetActive(true);
+
+        selectedPlant.plantStates[0].SetActive(true);
+        //plant.SetActive(true);
     }
 
     void UpdatePlant()
     {
-        plant = selectedPlant.plantStates[plantState];
+        //plant = selectedPlant.plantStates[plantState];
 
         if (plantState == 0)
         {
