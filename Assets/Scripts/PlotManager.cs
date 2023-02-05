@@ -12,6 +12,7 @@ public class PlotManager : MonoBehaviour
     int plantState = 0;
     float timer;
 
+
     public Color emptyColor = Color.white;
     public Color availableColor = Color.green;
     public Color unavailableColor = Color.red;
@@ -116,6 +117,32 @@ public class PlotManager : MonoBehaviour
     {
         isPlanted = false;
         plant.SetActive(false);
+        if (selectedPlant.plantName == "Beet")
+        {
+            Beet();
+        }
+        if (selectedPlant.plantName == "Carrot")
+        {
+            Carrot();
+        }
+        if (selectedPlant.plantName == "Onion")
+        {
+            Onion();
+        }
+        if (selectedPlant.plantName == "Radish")
+        {
+            Radish();
+        }
+        if (selectedPlant.plantName == "Turnip")
+        {
+            Turnip();
+        }
+        if (selectedPlant.plantName == "Potato")
+        {
+            Potato();
+        }
+
+
         fm.Transaction(selectedPlant.sellPrice);
 
             transform.GetChild(0).gameObject.SetActive(false);
