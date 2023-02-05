@@ -38063,7 +38063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectPlant: {fileID: 0}
   isPlanting: 0
-  money: 5000
+  money: 300
   moneyText: {fileID: 282610586}
   isSelecting: 0
   selectedTool: 0
