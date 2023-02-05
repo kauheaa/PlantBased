@@ -14,9 +14,15 @@ public class PickUp : MonoBehaviour
 
     }
 
+    public void PlopSound()
+    {
+        AudioManagerScript.PlaySound("plop");
+    }
+
     public void FinishPickup()
     {
         pm.PickUpEvent();
+        pm.money();
     }
 
     // Update is called once per frame

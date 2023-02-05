@@ -130,12 +130,16 @@ public class PlotManager : MonoBehaviour
         Debug.Log("Crop pick up finished");
     }
 
+    public void money()
+    {
+        fm.Transaction(selectedPlant.sellPrice);
+        AudioManagerScript.PlaySound("money");
+    }
+
     void Harvest()
     {
         isPlanted = false;
         plant.SetActive(false);
-
-        fm.Transaction(selectedPlant.sellPrice);
 
         Debug.Log("Transaction Finished");
 
@@ -153,6 +157,8 @@ public class PlotManager : MonoBehaviour
         plant.SetActive(true);
         selectedPlant = newPlant;
         isPlanted = true;
+
+        AudioManagerScript.PlaySound("plant");
 
         fm.Transaction(-selectedPlant.buyPrice);
         fm.isPlanting = false;
