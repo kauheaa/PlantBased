@@ -26,6 +26,7 @@ public class PlantItem : MonoBehaviour
     public void BuyPlant()
     {
         fm.SelectPlant(this);
+        //transform.GetChild(1).GetComponent<Button>().interactable = false;
     }
 
     void InitializeUI()

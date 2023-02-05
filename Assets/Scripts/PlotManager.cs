@@ -12,6 +12,8 @@ public class PlotManager : MonoBehaviour
     int plantState = 0;
     float timer;
 
+    int plantNr = 0;
+
 
     public Color emptyColor = Color.white;
     public Color availableColor = Color.green;
@@ -42,6 +44,7 @@ public class PlotManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isPlanted)
         {
             timer -= Time.deltaTime;
@@ -138,6 +141,35 @@ public class PlotManager : MonoBehaviour
 
     void Harvest()
     {
+        if (selectedPlant.plantName == "Beet")
+        {
+            plantNr = 2;
+        }
+        if (selectedPlant.plantName == "Carrot")
+        {
+            plantNr = 3;
+        }
+        if (selectedPlant.plantName == "Onion")
+        {
+            plantNr = 4;
+        }
+        if (selectedPlant.plantName == "Radish")
+        {
+            plantNr = 5;
+        }
+        if (selectedPlant.plantName == "Turnip")
+        {
+            plantNr = 6;
+        }
+        if (selectedPlant.plantName == "Potato")
+        {
+            plantNr = 7;
+        }
+        Debug.Log("Plant nr updated " + plantNr);
+
+        m_Animator = transform.GetChild(plantNr).gameObject.GetComponent<Animator>();
+        m_Animator.SetTrigger("Pickup");
+
         isPlanted = false;
         plant.SetActive(false);
 
@@ -146,9 +178,6 @@ public class PlotManager : MonoBehaviour
         plantState = 0;
 
         Debug.Log("PlantState reset");
-
-        m_Animator = transform.GetChild(2).gameObject.GetComponent<Animator>();
-        m_Animator.SetTrigger("Pickup");
 
     }
 
