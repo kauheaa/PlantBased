@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 1847050309108351973, guid: ac57f29622a13e542bac5b9369ebe349, type: 3}
   - {fileID: 3352315323219622942, guid: 1165f1f528fe1764a8ae57f06fd08822, type: 3}
   - {fileID: 3352315323219622942, guid: 1165f1f528fe1764a8ae57f06fd08822, type: 3}
-  timeBtwStates: 1
+  timeBtwStates: 40
   buyPrice: 600
   sellPrice: 700
   icon: {fileID: 21300000, guid: 12eed6ff5f7f6d143bc12b62922425ac, type: 3}
