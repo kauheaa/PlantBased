@@ -23,6 +23,7 @@ public class PlotManager : MonoBehaviour
     PlantObject selectedPlant;
 
     FarmManager fm;
+    PickUp pu;
 
     Animator m_Animator;
 
@@ -33,6 +34,7 @@ public class PlotManager : MonoBehaviour
     void Start()
     {
         fm = transform.parent.GetComponent<FarmManager>();
+        pu = this.gameObject.GetComponent<PickUp>();
         plant = transform.GetChild(0).gameObject;
         plot.color = emptyColor;
     }
@@ -113,49 +115,36 @@ public class PlotManager : MonoBehaviour
         }
     }
 
+    public void PickUpEvent()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
+        transform.GetChild(4).gameObject.SetActive(false);
+        transform.GetChild(5).gameObject.SetActive(false);
+        transform.GetChild(6).gameObject.SetActive(false);
+        transform.GetChild(7).gameObject.SetActive(false);
+
+        Debug.Log("Crop pick up finished");
+    }
+
     void Harvest()
     {
         isPlanted = false;
         plant.SetActive(false);
-        if (selectedPlant.plantName == "Beet")
-        {
-            Beet();
-        }
-        if (selectedPlant.plantName == "Carrot")
-        {
-            Carrot();
-        }
-        if (selectedPlant.plantName == "Onion")
-        {
-            Onion();
-        }
-        if (selectedPlant.plantName == "Radish")
-        {
-            Radish();
-        }
-        if (selectedPlant.plantName == "Turnip")
-        {
-            Turnip();
-        }
-        if (selectedPlant.plantName == "Potato")
-        {
-            Potato();
-        }
-
 
         fm.Transaction(selectedPlant.sellPrice);
 
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
-            transform.GetChild(2).gameObject.SetActive(false);
-            transform.GetChild(3).gameObject.SetActive(false);
-            transform.GetChild(3).gameObject.SetActive(false);
-            transform.GetChild(4).gameObject.SetActive(false);
-            transform.GetChild(5).gameObject.SetActive(false);
-            transform.GetChild(6).gameObject.SetActive(false);
-            transform.GetChild(7).gameObject.SetActive(false);
+        Debug.Log("Transaction Finished");
 
-            plantState = 0;
+        plantState = 0;
+
+        Debug.Log("PlantState reset");
+
+        m_Animator = transform.GetChild(2).gameObject.GetComponent<Animator>();
+        m_Animator.SetTrigger("Pickup");
 
     }
 
